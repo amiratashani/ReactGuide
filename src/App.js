@@ -6,7 +6,7 @@ import Person from './Person/Person';
 class App extends Component {
 
   state = {
-    person: [
+    persons: [
       { name: "Max", age: 28 },
       { name: "Manu", age: 29 },
       { name: "Stephanie", age: 26 }
@@ -19,7 +19,7 @@ class App extends Component {
     // console.log("Was Clicked!")
     // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
     this.setState({
-      person: [
+      persons: [
         { name: newName, age: 28 },
         { name: "Manu", age: 29 },
         { name: "Stephanie", age: 27 }
@@ -29,7 +29,7 @@ class App extends Component {
 
   nameChangedHandler = (event) => {
     this.setState({
-      person: [
+      persons: [
         { name: "Max", age: 28 },
         { name: event.target.value, age: 29 },
         { name: "Stephanie", age: 27 }
@@ -57,17 +57,11 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-            name={this.state.person[0].name}
-            age={this.state.person[0].age} />
-          <Person
-            name={this.state.person[1].name}
-            age={this.state.person[1].age}
-            click={this.switchNameHandler.bind(this, "Max!")}
-            changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
-          <Person
-            name={this.state.person[2].name}
-            age={this.state.person[2].age} />
+          {this.state.persons.map(person => {
+            return (<Person
+              name={person.name}
+              age={person.age} />)
+          })}
         </div>
       )
     }
