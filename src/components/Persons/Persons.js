@@ -2,6 +2,7 @@ import React from 'react';
 import Person from '../Persons/Person/Person'
 
 const persons = (props)=>{
+    console.log("[Persons.js rendering...]")
     return(
         props.persons.map((person,index)=>{
             return(
