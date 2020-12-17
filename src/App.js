@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import classes from './App.module.css';
 import Person from './Person/Person';
+import ErrorBoundry from './ErrorBoundary/ErrorBoundary';
 
 
 class App extends Component {
