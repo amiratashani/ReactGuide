@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classes from './Cockpit.module.css'
 
 const cockpit = (props) => {
+
+    useEffect(() => {
+        console.log("[Cockpit.ja useEffect]")
+        // Http request...
+    })
+
 
     const assignClasses = []
     if (props.persons.length <= 2) {
