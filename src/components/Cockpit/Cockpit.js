@@ -6,16 +6,19 @@ const cockpit = (props) => {
     useEffect(() => {
         console.log("[Cockpit.js useEffect]")
         // Http request...
-        setTimeout(()=>{
+        const timer = setTimeout(() => {
             alert("Saved data to cloud!")
-        },1000)
+        }, 1000)
 
-        return ()=>{ console.log("[Cockpit.ja cleanup work in useEffect]")}
-    },[])
+        return () => {
+            clearTimeout(timer)
+            console.log("[Cockpit.ja cleanup work in useEffect]")
+        }
+    }, [])
 
-    useEffect(()=>{
-        console.log("[Cockpit.js 2nd useEffect]") 
-        return ()=>{ console.log("[Cockpit.ja cleanup work in 2nd useEffect]")}
+    useEffect(() => {
+        console.log("[Cockpit.js 2nd useEffect]")
+        return () => { console.log("[Cockpit.ja cleanup work in 2nd useEffect]") }
     })
 
 
