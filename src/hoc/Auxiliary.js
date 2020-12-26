@@ -1,5 +1,5 @@
-import React from 'react'
 
-const aux = props => props.Children
+
+const aux = props => props.children
 
 export default aux
